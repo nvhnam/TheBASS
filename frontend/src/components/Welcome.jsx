@@ -2,7 +2,7 @@ import React from "react";
 
 const Welcome = () => {
   return (
-    <div className="w-full flex flex-col-reverse gap-5 md:flex-row items-center justify-center pl-4 py-10 max-w-6xl mb-15">
+    <div className="w-full flex flex-col-reverse gap-5 md:flex-row items-center justify-center pl-4 py-10 max-w-6xl my-13">
       {/* Left Section - Text */}
       <div className="md:w-1/2 text-center md:text-left mb-6 md:mb-0">
         <h1 className="text-2xl font-bold">Welcome to The BASS!</h1>

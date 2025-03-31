@@ -2,6 +2,7 @@ import React from "react";
 import Main from "../components/Main";
 import Popular from "../components/Popular";
 import Welcome from "../components/Welcome";
+import HomeProducts from "../components/HomeProducts";
 
 const Home = () => {
   return (
@@ -10,6 +11,8 @@ const Home = () => {
       <div className="w-full h-full min-h-screen max-w-screen-xl flex flex-col items-center px-4">
         <Popular />
         <Welcome />
+        <HomeProducts title={"Presets"} />
+        <HomeProducts title={"Courses"} />
       </div>
     </div>
   );

@@ -4,6 +4,7 @@ import { collections } from "../data/CollectionsData.js";
 import { products } from "../data/ProductsData.js";
 
 import ProductSlider from "./ProductSlider.jsx";
+import { Link } from "react-router-dom";
 
 const Popular = () => {
   const [activeCategory, setActiveCategory] = useState("Presets");
@@ -48,7 +49,7 @@ const Popular = () => {
 
       {filteredProducts.length > 0 && (
         <button className="mt-8 px-6 py-2 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition cursor-pointer">
-          View all
+          <Link to={`/collections/${activeCategory}`}>View all</Link>
         </button>
       )}
     </div>

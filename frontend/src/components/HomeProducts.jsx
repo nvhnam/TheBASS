@@ -16,7 +16,7 @@ const HomeProducts = ({ title }) => {
         </h2>
         <Link
           className="hidden sm:block absolute right-4 mt-2 text-lg"
-          // to={`/collections/${title.toLowerCase()}`}
+          to={`/collections/${title.toLowerCase()}`}
         >
           View all
         </Link>
@@ -24,7 +24,7 @@ const HomeProducts = ({ title }) => {
 
       <Link
         className="sm:hidden mb-5 text-lg"
-        //   to={`/collections/${title.toLowerCase()}`}
+        to={`/collections/${title.toLowerCase()}`}
       >
         View all
       </Link>

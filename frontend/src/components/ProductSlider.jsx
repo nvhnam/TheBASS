@@ -10,7 +10,7 @@ const ProductSlider = ({ products }) => {
   const [slidesPerView, setSlidesPerView] = useState(4);
   useEffect(() => {
     const updateSlides = () => {
-      setSlidesPerView(window.innerWidth < 768 ? 2 : 4);
+      setSlidesPerView(window.innerWidth < 768 ? 1 : 4);
     };
     updateSlides();
     window.addEventListener("resize", updateSlides);

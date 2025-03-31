@@ -28,9 +28,9 @@ const Footer = () => {
           <a href="#" className="cursor-pointer">
             Presets
           </a>
-          <a href="#" className="cursor-pointer">
+          {/* <a href="#" className="cursor-pointer">
             Merch
-          </a>
+          </a> */}
           <a href="#" className="cursor-pointer">
             Blog
           </a>

@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 import { useState } from "react";
 import { AnimatePresence } from "framer-motion";
-import { Routes, Route, Navigate, Outlet } from "react-router-dom";
+import { Routes, Route, Navigate, Outlet, useLocation } from "react-router-dom";
 import { AuthContextProvider } from "./context/authContext";
 import Spinner from "./components/Spinner";
 import Login from "./pages/Login";
@@ -17,9 +17,11 @@ import Post from "./components/Post";
 import WritePost from "./components/WritePost";
 
 function Layout({ isLoading }) {
+  const location = useLocation();
+  const isHomePage = location.pathname === "/home";
   return (
     <div className="w-full h-full min-h-screen relative flex flex-col">
-      <Navbar />
+      <Navbar isTransparent={isHomePage} />
       {/* <AnimatePresence mode="wait">{isLoading && <Spinner />}</AnimatePresence> */}
       {/* <motion.div
         initial={{ opacity: 0 }}

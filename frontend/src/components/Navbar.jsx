@@ -7,7 +7,7 @@ import { currentUser } from "../data/UserData.js";
 import { collections } from "../data/CollectionsData.js";
 import { AuthContext } from "../context/authContext.jsx";
 
-const Navbar = ({ setIsLoading }) => {
+const Navbar = ({ isTransparent }) => {
   const [menuOpen, setMenuOpen] = useState(false);
   const { logout } = useContext(AuthContext);
   const [isScrolled, setIsScrolled] = useState(false);
@@ -24,19 +24,26 @@ const Navbar = ({ setIsLoading }) => {
 
   return (
     <nav
-      className={`w-full rounded-t-none h-[60px] ${
-        isScrolled ? "bg-white shadow-md sticky" : "bg-transparent"
-      } text-white flex justify-center items-center  top-0 left-0 right-0 z-50 px-4 sm:px-6 lg:px-8 transition-all duration-200`}
+      className={`w-full h-[60px] ${
+        isScrolled
+          ? "bg-white shadow-md sticky text-black"
+          : isTransparent
+          ? "bg-transparent text-white"
+          : "bg-white text-black"
+      } flex justify-center items-center top-0 left-0 right-0 z-50 px-4 sm:px-6 lg:px-8 transition-all duration-200`}
     >
       <div className="w-full max-w-screen-xl h-full flex items-center justify-between">
-        {/* Logo */}
         <Link to="/" className="font-semibold text-xl flex items-center">
           <span className={`${isScrolled && "text-black"}`}>The</span>
           <span className="text-l -mr-2 text-green-400">{">"}</span>
           <span className="text-l text-green-400">{"_"}</span>{" "}
           <span
             className={`text-s ${
-              isScrolled ? "text-black" : "font-light"
+              isScrolled
+                ? "text-black"
+                : isTransparent
+                ? "font-light"
+                : "text-black"
             } ml-1 tracking-widest`}
           >
             BASS
@@ -48,9 +55,13 @@ const Navbar = ({ setIsLoading }) => {
           {collections.map((category) => (
             <Link
               key={category.id}
-              to={`/${category.name}`}
+              to={`collections/${category.name}`}
               className={`${
-                isScrolled ? "text-black" : "text-gray-100"
+                isScrolled
+                  ? "text-black"
+                  : isTransparent
+                  ? "text-gray-100"
+                  : "text-black"
               } hover:text-red-300 hover:border-b-2 border-transparent p-2 hover:border-red-300 transition-all duration-200`}
             >
               {category.name}
@@ -58,14 +69,17 @@ const Navbar = ({ setIsLoading }) => {
           ))}
         </div>
 
-        {/* User Actions */}
         <div className="hidden md:flex items-center gap-x-6">
           {currentUser ? (
             <>
               <Link
                 to={`/profile/${currentUser.id}`}
                 className={`flex items-center gap-x-2 ${
-                  isScrolled ? "text-black" : "text-gray-300"
+                  isScrolled
+                    ? "text-black"
+                    : isTransparent
+                    ? "text-gray-300"
+                    : "text-black"
                 } hover:text-red-300`}
               >
                 <FaUser />
@@ -74,7 +88,11 @@ const Navbar = ({ setIsLoading }) => {
               <button
                 onClick={logout}
                 className={`text-sm bg-transparent px-4 py-1.5 border-2 border-red-300 ${
-                  isScrolled ? "text-black" : "text-white"
+                  isScrolled
+                    ? "text-black"
+                    : isTransparent
+                    ? "text-white"
+                    : "text-black"
                 } hover:bg-red-300 flex items-center gap-x-1.5 transition-all duration-200 cursor-pointer`}
               >
                 <MdOutlineLogout />
@@ -85,7 +103,11 @@ const Navbar = ({ setIsLoading }) => {
             <Link to="/login">
               <button
                 className={`text-sm bg-transparent px-4 py-1.5 border-2 border-red-300 ${
-                  isScrolled ? "text-black" : "text-white"
+                  isScrolled
+                    ? "text-black"
+                    : isTransparent
+                    ? "text-white"
+                    : "text-black"
                 } hover:bg-red-300 flex items-center gap-x-1.5 transition-all duration-200 cursor-pointer`}
               >
                 <MdOutlineLogin />
@@ -99,7 +121,11 @@ const Navbar = ({ setIsLoading }) => {
         <button
           onClick={() => setMenuOpen(!menuOpen)}
           className={`md:hidden ${
-            isScrolled ? "text-black" : "text-white"
+            isScrolled
+              ? "text-black"
+              : isTransparent
+              ? "text-white"
+              : "text-black"
           } text-2xl`}
         >
           {menuOpen ? <FaTimes /> : <FaBars />}
